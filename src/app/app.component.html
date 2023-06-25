@@ -8,6 +8,17 @@
         <li>Log all button clicks in an array and output that array below the secret paragraph (maybe log a timestamp or simply an incrementing number)</li>
         <li>Starting at the 5th log item, give all future log items a blue background (via ngStyle) and white color (ngClass)</li>
       </ol>
+      <hr>
+      <button
+        (click)="toggleDisplayContent()">Display Details
+      </button>
+      <p *ngIf="displayContent">Secret Password = tuna</p>
+      <p 
+        *ngFor="let item of clickLog; let i = index"
+        [ngStyle]="{'background-color': item >= 5 ? 'blue' : 'transparent'}"
+        [ngClass]="{'online': item >= 5}"
+        >{{ item }}
+      </p>
     </div>
   </div>
 </div>
